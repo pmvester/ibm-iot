@@ -1,0 +1,1207 @@
+{
+	"info": {
+		"_postman_id": "8ce0e816-b1f6-48ee-8116-11cbe27e607c",
+		"name": "IBM Watson IoT Platform Organization Administration REST APIs",
+		"description": "The Organization Adminstration APIs can be used to configure an organization (including \ncreating and deleting devices), checking usage, service status and diagnosing device \nconnection problems.\nFor information on this API, and how to use Watson IoT Platform APIs generally see \n[the API documentation](https://console.ng.bluemix.net/docs/services/IoT/reference/api.html).\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bulk",
+			"item": [
+				{
+					"name": "List devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/bulk/devices?_bookmark={{_bookmark}}&_limit=25&_sort={{_sort}}&_facets={{_facets}}&typeId={{typeId}}&deviceId={{deviceId}}&gatewayTypeId={{gatewayTypeId}}&gatewayId={{gatewayId}}&status.alert.enabled={{status.alert.enabled}}&registration.date={{registration.date}}&mgmt.dormant={{mgmt.dormant}}&mgmt.supports.deviceActions={{mgmt.supports.deviceActions}}&mgmt.supports.firmwareActions={{mgmt.supports.firmwareActions}}&deviceInfo.description={{deviceInfo.description}}&deviceInfo.descriptiveLocation={{deviceInfo.descriptiveLocation}}&deviceInfo.serialNumber={{deviceInfo.serialNumber}}&deviceInfo.deviceClass={{deviceInfo.deviceClass}}&deviceInfo.fwVersion={{deviceInfo.fwVersion}}&deviceInfo.hwVersion={{deviceInfo.hwVersion}}&deviceInfo.manufacturer={{deviceInfo.manufacturer}}&deviceInfo.model={{deviceInfo.model}}",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"bulk",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "_bookmark",
+									"value": "{{_bookmark}}"
+								},
+								{
+									"key": "_limit",
+									"value": "25"
+								},
+								{
+									"key": "_sort",
+									"value": "{{_sort}}"
+								},
+								{
+									"key": "_facets",
+									"value": "{{_facets}}"
+								},
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "gatewayTypeId",
+									"value": "{{gatewayTypeId}}"
+								},
+								{
+									"key": "gatewayId",
+									"value": "{{gatewayId}}"
+								},
+								{
+									"key": "status.alert.enabled",
+									"value": "{{status.alert.enabled}}"
+								},
+								{
+									"key": "registration.date",
+									"value": "{{registration.date}}"
+								},
+								{
+									"key": "mgmt.dormant",
+									"value": "{{mgmt.dormant}}"
+								},
+								{
+									"key": "mgmt.supports.deviceActions",
+									"value": "{{mgmt.supports.deviceActions}}"
+								},
+								{
+									"key": "mgmt.supports.firmwareActions",
+									"value": "{{mgmt.supports.firmwareActions}}"
+								},
+								{
+									"key": "deviceInfo.description",
+									"value": "{{deviceInfo.description}}"
+								},
+								{
+									"key": "deviceInfo.descriptiveLocation",
+									"value": "{{deviceInfo.descriptiveLocation}}"
+								},
+								{
+									"key": "deviceInfo.serialNumber",
+									"value": "{{deviceInfo.serialNumber}}"
+								},
+								{
+									"key": "deviceInfo.deviceClass",
+									"value": "{{deviceInfo.deviceClass}}"
+								},
+								{
+									"key": "deviceInfo.fwVersion",
+									"value": "{{deviceInfo.fwVersion}}"
+								},
+								{
+									"key": "deviceInfo.hwVersion",
+									"value": "{{deviceInfo.hwVersion}}"
+								},
+								{
+									"key": "deviceInfo.manufacturer",
+									"value": "{{deviceInfo.manufacturer}}"
+								},
+								{
+									"key": "deviceInfo.model",
+									"value": "{{deviceInfo.model}}"
+								}
+							]
+						},
+						"description": "Sorting can be performed on any of the following properties (sort order can be reversed by prefixing the property name with '-'):\n- typeId\n- deviceId\n- deviceInfo.description\n- deviceInfo.descriptiveLocation\n- deviceInfo.serialNumber\n- deviceInfo.deviceClass\n- deviceInfo.fwVersion\n- deviceInfo.hwVersion\n- deviceInfo.manufacturer\n- deviceInfo.model\n- mgmt.dormant\n- mgmt.supports.deviceActions\n- mgmt.supports.firmwareActions\n- registration.date\n- status.alert.enabled\n- status.alert.timestamp\n\nThe following facets are supported:\n- typeId\n- deviceInfo.deviceClass\n- deviceInfo.fwVersion\n- deviceInfo.hwVersion\n- deviceInfo.manufacturer\n- deviceInfo.model\n- mgmt.dormant\n- mgmt.supports.deviceActions\n- mgmt.supports.firmwareActions\n- status.alert.enabled"
+					},
+					"response": []
+				},
+				{
+					"name": "Register multiple new devices",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Devices to be registered"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/bulk/devices/add",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"bulk",
+								"devices",
+								"add"
+							]
+						},
+						"description": "Register multiple new devices, each request can contain a maximum of 512 kB.  The response body will contain the generated authentication tokens for all devices. You must make sure to record these tokens when processing the response. We are not able to retrieve lost authentication tokens."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete multiple devices",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Devices to be deleted"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/bulk/devices/remove",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"bulk",
+								"devices",
+								"remove"
+							]
+						},
+						"description": "Delete multiple devices, each request can contain a maximum of 512 kB."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for bulk"
+		},
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "List device types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types?",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types"
+							],
+							"query": [
+								{
+									"key": "_bookmark",
+									"value": "{{_bookmark}}",
+									"disabled": true
+								},
+								{
+									"key": "_limit",
+									"value": "25",
+									"disabled": true
+								},
+								{
+									"key": "_sort",
+									"value": "{{_sort}}",
+									"disabled": true
+								},
+								{
+									"key": "_facets",
+									"value": "{{_facets}}",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "{{id}}",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "{{description}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.description",
+									"value": "{{deviceInfo.description}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.descriptiveLocation",
+									"value": "{{deviceInfo.descriptiveLocation}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.serialNumber",
+									"value": "{{deviceInfo.serialNumber}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.deviceClass",
+									"value": "{{deviceInfo.deviceClass}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.fwVersion",
+									"value": "{{deviceInfo.fwVersion}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.hwVersion",
+									"value": "{{deviceInfo.hwVersion}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.manufacturer",
+									"value": "{{deviceInfo.manufacturer}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.model",
+									"value": "{{deviceInfo.model}}",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Sorting can be performed on any of the following properties (sort order can be reversed by prefixing the property name with '-'):\n- id\n- description\n- deviceInfo.description\n- deviceInfo.descriptiveLocation\n- deviceInfo.serialNumber\n- deviceInfo.deviceClass\n- deviceInfo.fwVersion\n- deviceInfo.hwVersion\n- deviceInfo.manufacturer\n- deviceInfo.model\n- edgeConfiguration.enabled\n- edgeConfiguration.architecture\n- edgeConfiguration.edgeServices.id\n- edgeConfiguration.edgeServices.deploymentOverrides\n\nThe following facets are supported:\n- deviceInfo.deviceClass\n- deviceInfo.fwVersion\n- deviceInfo.hwVersion\n- deviceInfo.manufacturer\n- deviceInfo.model"
+					},
+					"response": []
+				},
+				{
+					"name": "Create device type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Device type to be created"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types"
+							]
+						},
+						"description": "Creates a device type for a normal device or a gateway. Gateways are specialization of devices but have the additional permission to register new devices and act on behalf of a device that is assigned to the gateway."
+					},
+					"response": []
+				},
+				{
+					"name": "Get device type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								}
+							]
+						},
+						"description": "Gets device type details."
+					},
+					"response": []
+				},
+				{
+					"name": "Update device type",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Device type update"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								}
+							]
+						},
+						"description": "Updates a device type."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete device type",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								}
+							]
+						},
+						"description": "Deletes a device type."
+					},
+					"response": []
+				},
+				{
+					"name": "List devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices?",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "_bookmark",
+									"value": "{{_bookmark}}",
+									"disabled": true
+								},
+								{
+									"key": "_limit",
+									"value": "25",
+									"disabled": true
+								},
+								{
+									"key": "_sort",
+									"value": "{{_sort}}",
+									"disabled": true
+								},
+								{
+									"key": "_facets",
+									"value": "{{_facets}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}",
+									"disabled": true
+								},
+								{
+									"key": "status.alert.enabled",
+									"value": "{{status.alert.enabled}}",
+									"disabled": true
+								},
+								{
+									"key": "gatewayTypeId",
+									"value": "{{gatewayTypeId}}",
+									"disabled": true
+								},
+								{
+									"key": "gatewayId",
+									"value": "{{gatewayId}}",
+									"disabled": true
+								},
+								{
+									"key": "mgmt.dormant",
+									"value": "{{mgmt.dormant}}",
+									"disabled": true
+								},
+								{
+									"key": "mgmt.supports.deviceActions",
+									"value": "{{mgmt.supports.deviceActions}}",
+									"disabled": true
+								},
+								{
+									"key": "mgmt.supports.firmwareActions",
+									"value": "{{mgmt.supports.firmwareActions}}",
+									"disabled": true
+								},
+								{
+									"key": "registration.date",
+									"value": "{{registration.date}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.description",
+									"value": "{{deviceInfo.description}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.descriptiveLocation",
+									"value": "{{deviceInfo.descriptiveLocation}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.serialNumber",
+									"value": "{{deviceInfo.serialNumber}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.deviceClass",
+									"value": "{{deviceInfo.deviceClass}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.fwVersion",
+									"value": "{{deviceInfo.fwVersion}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.hwVersion",
+									"value": "{{deviceInfo.hwVersion}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.manufacturer",
+									"value": "{{deviceInfo.manufacturer}}",
+									"disabled": true
+								},
+								{
+									"key": "deviceInfo.model",
+									"value": "{{deviceInfo.model}}",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								}
+							]
+						},
+						"description": "Sorting can be performed on any of the following properties (sort order can be reversed by prefixing the property name with '-'):\n- typeId\n- deviceId\n- deviceInfo.description\n- deviceInfo.descriptiveLocation\n- deviceInfo.serialNumber\n- deviceInfo.deviceClass\n- deviceInfo.fwVersion\n- deviceInfo.hwVersion\n- deviceInfo.manufacturer\n- deviceInfo.model\n- mgmt.dormant\n- mgmt.supports.deviceActions\n- mgmt.supports.firmwareActions\n- registration.date\n- status.alert.enabled\n- status.alert.timestamp\n\nThe following facets are supported:\n- typeId\n- deviceInfo.deviceClass\n- deviceInfo.fwVersion\n- deviceInfo.hwVersion\n- deviceInfo.manufacturer\n- deviceInfo.model\n- mgmt.dormant\n- mgmt.supports.deviceActions\n- mgmt.supports.firmwareActions\n- status.alert.enabled"
+					},
+					"response": []
+				},
+				{
+					"name": "Add device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"{{deviceId}}\",\n  \"metadata\": {\n\t\"desc\": \"{{desc}}\",\n\t\"lat\": \"{{lat}}\",\n\t\"lon\": \"{{lon}}\"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								}
+							]
+						},
+						"description": "Adds a device."
+					},
+					"response": []
+				},
+				{
+					"name": "Get device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices/:deviceId?",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId"
+							],
+							"query": [
+								{
+									"key": "_expand",
+									"value": "{{_expand}}",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Gets device details."
+					},
+					"response": []
+				},
+				{
+					"name": "Remove device",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices/:deviceId",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Removes a device."
+					},
+					"response": []
+				},
+				{
+					"name": "Update device",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"metadata\": {\n        \"Lon\": \"18.06764\",\n        \"Lat\": \"59.33596\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices/:deviceId",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Updates a device."
+					},
+					"response": []
+				},
+				{
+					"name": "Get devices that are connected through the gateway specified by id {deviceId}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices/:deviceId/devices",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId",
+								"devices"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Gets information on devices that are connected through the specified gateway (typeId, deviceId) to Watson IoT Platform."
+					},
+					"response": []
+				},
+				{
+					"name": "Return the status of containers from an edge node.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices/:deviceId/edgestatus",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId",
+								"edgestatus"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Return the status of containers from an edge node."
+					},
+					"response": []
+				},
+				{
+					"name": "Return the status of containers from an edge node filtering by service.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:typeId/devices/:deviceId/edgestatus/:serviceId",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId",
+								"edgestatus",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "serviceId",
+									"value": "{{serviceId}}"
+								}
+							]
+						},
+						"description": "Return the status of containers from an edge node filtering by service."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for device"
+		},
+		{
+			"name": "logs",
+			"item": [
+				{
+					"name": "List device connection log events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/logs/connection?typeId={{typeId}}&deviceId={{deviceId}}&limit={{limit}}&offset={{offset}}&fromTime={{fromTime}}&toTime={{toTime}}",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"logs",
+								"connection"
+							],
+							"query": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "offset",
+									"value": "{{offset}}"
+								},
+								{
+									"key": "fromTime",
+									"value": "{{fromTime}}"
+								},
+								{
+									"key": "toTime",
+									"value": "{{toTime}}"
+								}
+							]
+						},
+						"description": "List connection log events for a device to aid in diagnosing connectivity problems. The entries record successful connection, unsuccessful connection attempts, intentional disconnection and server-initiated disconnection."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for logs"
+		},
+		{
+			"name": "usage",
+			"item": [
+				{
+					"name": "Retrieve the amount of data used",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/usage/data-traffic?start={{start}}&end={{end}}&detail={{detail}}",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"usage",
+								"data-traffic"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "{{start}}"
+								},
+								{
+									"key": "end",
+									"value": "{{end}}"
+								},
+								{
+									"key": "detail",
+									"value": "{{detail}}"
+								}
+							]
+						},
+						"description": "Retrieve the amount of data used"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for usage"
+		},
+		{
+			"name": "service-status",
+			"item": [
+				{
+					"name": "Retrieve the status of services for an organization",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/service-status",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"service-status"
+							]
+						},
+						"description": "Retrieve the organization-specific status of each of the services offered by Watson IoT Platform."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for service-status"
+		},
+		{
+			"name": "Get organization details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/",
+					"protocol": "https",
+					"host": [
+						"{{orgId}}",
+						"internetofthings",
+						"ibmcloud",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0002",
+						""
+					]
+				},
+				"description": "Get details about an organization."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{authToken}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5c23287d-2dde-415e-b26f-b0113593c920",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "04a0a023-0af6-4905-bce7-1adb7e30d83d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
