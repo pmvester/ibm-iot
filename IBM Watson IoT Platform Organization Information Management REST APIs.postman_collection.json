@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "e64b8ec6-9e9e-4112-9e8d-00b33a0d0976",
+		"name": "IBM Watson IoT Platform Organization Information Management REST APIs",
+		"description": "The Information Management APIs can be used to access device event data as well as \nget and update device location and obtain weather information for that location.\nFor information on this API, and how to use Watson IoT Platform APIs generally see \n[the API documentation](https://console.ng.bluemix.net/docs/services/IoT/reference/api.html).  version: \"0002\"\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "config",
+			"item": [
+				{
+					"name": "Retrieve the Last Event Cache configuration for your organization",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com//api/v0002/config/lec",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"",
+								"api",
+								"v0002",
+								"config",
+								"lec"
+							]
+						},
+						"description": "Retrieves the current configuration for the Last Event Cache (LEC) feature for your organization. You can use this endpoint to determine whether or not the LEC feature is currently enabled, along with how many days cached device events will persist for before being removed from the cache."
+					},
+					"response": []
+				},
+				{
+					"name": "Update the Last Event Cache configuration for your organization",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "LEC configuration to apply"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com//api/v0002/config/lec",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"",
+								"api",
+								"v0002",
+								"config",
+								"lec"
+							]
+						},
+						"description": "Updates the current configuration for the Last Event Cache (LEC) feature for your organization. You can use this endpoint to control whether or not the LEC feature is currently enabled, along with how many days cached device events will persist for before being removed from the cache."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for config"
+		},
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "Get last event for a specific event id for a specific device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com//api/v0002/device/types/:deviceType/devices/:deviceId/events/:eventName",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"",
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":deviceType",
+								"devices",
+								":deviceId",
+								"events",
+								":eventName"
+							],
+							"variable": [
+								{
+									"key": "deviceType",
+									"value": "{{deviceType}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "eventName",
+									"value": "{{eventName}}"
+								}
+							]
+						},
+						"description": "Get last event for a specific event id for a specific device"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all last events for a specific device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com/api/v0002/device/types/:deviceType/devices/:deviceId/events",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":deviceType",
+								"devices",
+								":deviceId",
+								"events"
+							],
+							"variable": [
+								{
+									"key": "deviceType",
+									"value": "{{deviceType}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Get all last events for a specific device"
+					},
+					"response": []
+				},
+				{
+					"name": "Get device location information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com//api/v0002/device/types/:typeId/devices/:deviceId/location",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"",
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId",
+								"location"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Gets location information for a device."
+					},
+					"response": []
+				},
+				{
+					"name": "Update device location information",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Device location information"
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com//api/v0002/device/types/:typeId/devices/:deviceId/location",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"",
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId",
+								"location"
+							],
+							"variable": [
+								{
+									"key": "typeId",
+									"value": "{{typeId}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								}
+							]
+						},
+						"description": "Updates the location information for a device. If no date is supplied, the entry is added with the current date and time."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve current meteorological observations for the location associated with your device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{orgId}}.internetofthings.ibmcloud.com//api/v0002/device/types/:typeId/devices/:deviceId/exts/twc/ops/geocode",
+							"protocol": "https",
+							"host": [
+								"{{orgId}}",
+								"internetofthings",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"",
+								"api",
+								"v0002",
+								"device",
+								"types",
+								":typeId",
+								"devices",
+								":deviceId",
+								"exts",
+								"twc",
+								"ops",
+								"geocode"
+							],
+							"variable": [
+								{
+									"key": "typeId"
+								},
+								{
+									"key": "deviceId"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for device"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{authToken}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "037e7f09-d2aa-4b53-aa04-f202ec92b217",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "dcf82b3f-876c-4d04-aced-d2ef8d50a3ef",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
